@@ -28,7 +28,7 @@ use kartik\date\DatePicker;
             <div class='row'>
                 <div class="col-md-6">
                     <?= $form->field($model, 'date_start')->widget(DatePicker::classname(), [
-                        'options' => ['placeholder' => 'Enter birth date ...'],
+                        'options' => ['placeholder' => 'Начало акции ...'],
                         'pluginOptions' => [
                             'autoclose'=>true
                         ]
@@ -36,7 +36,7 @@ use kartik\date\DatePicker;
                 </div>
                 <div class="col-md-6">
                     <?= $form->field($model, 'date_end')->widget(DatePicker::classname(), [
-                        'options' => ['placeholder' => 'Enter birth date ...'],
+                        'options' => ['placeholder' => 'Конец акции ...'],
                         'pluginOptions' => [
                             'autoclose'=>true
                         ]

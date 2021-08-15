@@ -88,6 +88,25 @@ class ProductController extends Controller
         $model = new ProductForm();
         $product = Product::findOne(['id'=>$id]);
 
+        if($model->load(Yii::$app->request->post()))
+        {
+            $model->images = UploadedFile::getInstances($model,'images');
+            if($images_path=$model->upload()){
+                $product->name=$model->name;
+                $product->description=$model->description;
+                $product->count=$model->count;
+                $product->category_id=$model->category_id;
+                $product->price=$model->price;
+                $product->sub_category_id=$model->sub_category_id;
+                $product->url_images = json_encode($images_path);
+                if($product->save()){
+                    
+                }
+                return $this->redirect(['/product/index']);
+            }
+        }
+
+
         $model->name=$product->name;
         $model->description=$product->description;
         $model->count=$product->count;
@@ -131,7 +150,7 @@ class ProductController extends Controller
     public function actionDelete($id){
         $product = Product::findOne(['id' => $id]);
         if($product->delete()){
-            Yii::$app->session->addFlash('success', 'продукта удалена');
+            Yii::$app->session->addFlash('success', 'продукт удален');
         }else {
             Yii::$app->session->addFlash('error', 'Ошибка удаления продукта');
         }

@@ -52,7 +52,9 @@ class CategoryController extends Controller
     public function actionCreate()
     {
         $model = new CategoryForm();
-        if($model->load(Yii::$app->request->post())){        
+        if($model->load(Yii::$app->request->post())){   
+            echo 'hello';
+            die();     
                 $category = new Category();
                 $category->name = $model->name;
                 $category->description = $model->description;

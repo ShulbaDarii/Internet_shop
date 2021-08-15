@@ -26,4 +26,9 @@
         {
             return $this->hasMany(SubCategory::className(),['category_id','id']);
         }
+
+        public function getProducts()
+        {
+            return $this->hasMany(Product::className(),['category_id','id']);
+        }
      }

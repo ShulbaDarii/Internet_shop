@@ -41,11 +41,11 @@ use yii\helpers\Url;
                 ],
                 [
                     'label' => 'Категория',
-                    'attribute' => 'category_id'
+                    'attribute' => 'category.name'
                 ],
                 [
                     'label' => 'Подкатегория',
-                    'attribute' => 'sub_category_id'
+                    'attribute' => 'sub_category.name'
                 ],
                 ['class' => 'yii\grid\ActionColumn', 'template' => '{view} {update} {delete}',
                     'options' => [
